@@ -64,7 +64,7 @@ defmodule GcsSignedUrl.StringToSign do
     string_to_sign =
       "GOOG4-RSA-SHA256\n#{iso_date_time.datetime}\n#{credential_scope}\n#{Crypto.sha256(canonical_request)}"
 
-    url_template = "https://#{host}#{resource}?#{query_string}&X-Goog-Signature=#SIGNATURE#"
+    url_template = "https://#{host}/#{bucket}#{resource}?#{query_string}&X-Goog-Signature=#SIGNATURE#"
 
     %__MODULE__{
       string_to_sign: string_to_sign,
